@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         const weatherData = await fetchWeather(coords.lat, coords.lon);
         displayWeather(weatherData);
     } catch (error) {
-        document.getElementById('status').innerText = errorMessage;
+        document.getElementById('status').innerText = error;
     }
 });
 
