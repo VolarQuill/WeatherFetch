@@ -1,0 +1,45 @@
+html {
+    background-color: rgb(196, 216, 243);
+}
+h1{
+    font-family: Arial, sans-serif;
+    
+    background-color: rgb(156, 189, 232);
+    padding-top: 1.4vw;
+    padding-bottom: 1.4vw;
+    margin: 0 auto;
+    width: 50%;
+    font-size: 5vw;
+    text-align: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    font-weight: 800;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+}
+p{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; 
+    font-size: 20px;
+    font-weight: bold;
+    white-space: pre-wrap;
+    background-color: rgb(156, 189, 232);
+    padding: 1vw 3vw;
+    margin: 0;
+    border-style: solid;
+    border-width: 0.2vw;
+    border-color: rgb(0, 0, 0);
+    border-radius: 1vw;  
+}
+.weather {
+    
+}
+.item{
+    display: flex;
+    justify-content: center;
+    margin: 2vw;
+}
+span{
+    white-space: pre-wrap;
+}

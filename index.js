@@ -33,4 +33,11 @@ async function fetchWeather(lat, lon) {
 function displayWeather(data) {
     document.getElementById('status').style.display = 'none';
     document.getElementById('content').style.display = 'block'; 
+    
+    document.getElementById('temp').innerText= data.current.temperature_2m;
+    document.getElementById('humidity').innerText = data.current.relative_humidity_2m;
+    document.getElementById('windspeed').innerText = data.current.wind_speed_10m;
+    document.getElementById('feeltemp').innerText = data.current.apparent_temperature;
+    document.getElementById('precip').innerText = data.current.precipitation;
+
 }
