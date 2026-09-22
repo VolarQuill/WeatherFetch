@@ -22,4 +22,12 @@ function askForLocation() {
     });
 }
 
+async function fetchWeather(lat, lon) {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m&timezone=auto`;
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error('Failed to fetch weather data')}
+    return await response.json();
+} 
+
 
