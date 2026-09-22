@@ -30,4 +30,7 @@ async function fetchWeather(lat, lon) {
     return await response.json();
 } 
 
-
+function displayWeather(data) {
+    document.getElementById('status').style.display = 'none';
+    document.getElementById('content').style.display = 'block'; 
+}
