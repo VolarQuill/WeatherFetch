@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         const coords = await askForLocation();
         document.getElementById('status').innerText = 'Fetching weather data...';
         const weatherData = await fetchWeather(coords.lat, coords.lon);
+        const locationName = await fetchLocationName(coords.lat, coords.lon);
         displayWeather(weatherData);
     } catch (error) {
         document.getElementById('status').innerText = error;
@@ -39,5 +40,14 @@ function displayWeather(data) {
     document.getElementById('windspeed').innerText = data.current.wind_speed_10m;
     document.getElementById('feeltemp').innerText = data.current.apparent_temperature;
     document.getElementById('precip').innerText = data.current.precipitation;
+}
 
+async function fetchLocationName(lat, lon) {
+    const url = `https://bigdatacloud.net{lat}&longitude=${lon}&localityLanguage=en`;
+    const response = await fetch(url);    
+    const data = await response.json();
+    const city = data.city;
+    const country = data.countryName || "";
+
+    return country ? `${city}, ${country}` : city;
 }
