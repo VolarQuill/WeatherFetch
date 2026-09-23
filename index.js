@@ -2,9 +2,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     try {
         const coords = await askForLocation();
         document.getElementById('status').innerText = 'Fetching weather data...';
+
         const weatherData = await fetchWeather(coords.lat, coords.lon);
         const locationName = await fetchLocationName(coords.lat, coords.lon);
-        displayWeather(weatherData);
+
+        displayWeather(weatherData, locationName);
     } catch (error) {
         document.getElementById('status').innerText = error;
     }
@@ -31,10 +33,11 @@ async function fetchWeather(lat, lon) {
     return await response.json();
 } 
 
-function displayWeather(data) {
+function displayWeather(data, locationName) {
     document.getElementById('status').style.display = 'none';
     document.getElementById('content').style.display = 'block'; 
     
+    document.getElementById('locationName').innerText = locationName;
     document.getElementById('temp').innerText= data.current.temperature_2m;
     document.getElementById('humidity').innerText = data.current.relative_humidity_2m;
     document.getElementById('windspeed').innerText = data.current.wind_speed_10m;
@@ -43,11 +46,17 @@ function displayWeather(data) {
 }
 
 async function fetchLocationName(lat, lon) {
-    const url = `https://bigdatacloud.net{lat}&longitude=${lon}&localityLanguage=en`;
+    const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
     const response = await fetch(url);    
+        if (!response.ok) { 
+            return "Unkown Location";
+        } 
+
     const data = await response.json();
-    const city = data.city;
+
+    const city = data.city || data.locality || "Unknown City"; 
     const country = data.countryName || "";
 
     return country ? `${city}, ${country}` : city;
-}
+    }
+    
