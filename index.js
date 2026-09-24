@@ -77,4 +77,4 @@ async function fetchLocationName(lat, lon) {
     const country = data.countryName || "";
 
     return country ? `${city}, ${country}` : city;
-    }
+    } 

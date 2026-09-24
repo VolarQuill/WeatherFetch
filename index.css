@@ -20,7 +20,13 @@ h1{
     font-weight: 800;
     border-color: rgb(0, 0, 0);
     border-style: solid;
-    letter-spacing: -4px;
+    letter-spacing: -3px;
+    border-radius: 15px;
+    transition: all 0.1s;
+}
+h1:hover{
+    scale: 1.05;
+    box-shadow: 0.8vw 0.8vw rgba(0, 0, 0, 0.5);
 }
 p{
     font-family: 'Helvetica', sans-serif;
@@ -36,17 +42,33 @@ p{
     border-width: 0.2vw;
     border-color: rgb(0, 0, 0);
     box-shadow: 0.5vw 0.5vw rgba(0, 0, 0, 0.5);
+    transition: all 0.1s;
+    border-radius: 5px;
+}
+.spec:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px; 
+}
+p:hover{
+    box-shadow: 0.9vw 0.9vw rgba(0, 0, 0, 0.5);
+    transform: translate(-0.2vw, -0.2vw);
+    scale: 1.03;
 }
 .weather { 
  
 }
 .sticker1{
     position: absolute;
-    height: clamp(13vw, 17vw, 22vw);
-    width: clamp(13vw, 17vw, 22vw);
+    height: clamp(14vw, 18vw, 23vw);
+    width: clamp(14vw, 18vw, 23vw);
     transform: rotate(3deg);
     top: 10vw;
     left: 4vw;
+    transition: all 0.1s;
+}
+.sticker1:hover{
+    scale: 1.2;
 }
 .sticker2{
     position: absolute;
@@ -54,7 +76,11 @@ p{
     width: clamp(13vw, 18vw, 22vw);
     transform: rotate(12deg);
     top: 10vw;
-    right: 10vw
+    right: 5vw;
+    transition: all 0.1s
+}
+.sticker2:hover{ 
+    scale: 1.2;
 }
 .sticker3{
     position: absolute;
@@ -62,6 +88,10 @@ p{
     width: clamp(13vw, 18vw,22vw);
     top: 28vw;
     right: 5vw;
+    transition: all 0.1s;
+}
+.sticker3:hover{
+    scale: 1.2;
 }
 .sticker4{
     position: absolute;
@@ -70,11 +100,15 @@ p{
     top: 27vw;
     left: 8vw;
     transform: rotate(-15deg);
+    transition: all 0.1s;
+}
+.sticker4:hover{
+    scale: 1.2;
 }
 .item{
     display: flex;
     justify-content: center;
-    margin: 1vw;
+    margin: 1.2vw;
     width: auto;
 }
 span{

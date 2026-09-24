@@ -6,16 +6,17 @@
         <link href="index.css" rel="stylesheet">
     </head>    
     <body>
-    <div id="dashboard">
+    <div id="dashboard"> 
         <p id="status">Loading...</p>
+      
+        <div id="content" style="display: none;">
         <div><img class="sticker1" src="pics/removed-background (3).png"></div>
         <div><img class="sticker2" src="pics/removed-background (2).png"></div>
         <div><img class="sticker3" src="pics/removed-background (6).png"></div>
         <div><img class="sticker4" src="pics/removed-background (8).png"></div>
-        <div id="content" style="display: none;">
             <div class="weather">
                 <h1>Weather Fetch</h1>
-                <div class="item"><p>Condition: <strong><span id="condition"></span></strong></p></div>
+                <div class="item"><span class="spec" id="condition" style="font-size: 15vw;"></span></div>
                 <div class="item"><p>Location: <span id="locationName"></span></p></div>
                 <div class="item"><p>Temperate:  <span id="temp"> </span>°C</p></div>
                 <div class="item"><p>Feels Like:  <span id="feeltemp"> </span>°C</p></div>
