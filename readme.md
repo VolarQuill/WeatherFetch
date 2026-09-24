@@ -5,4 +5,7 @@ This Website requests permission for location and sends API requests to Open Met
 The stickers are taken from pinterest, and the styling is normal CSS.
 
 A few animations are also beautifully put in to induce the sense of interactivity, bringing together a good website for knowing the weather.
-![alt text](image.png)
+
+You can try it out on =>  https://weather-fetch-six.vercel.app/
+
+<img width="1917" height="970" alt="image" src="https://github.com/user-attachments/assets/2747a638-059f-4cf3-81d1-fb82afd52d3b" />
