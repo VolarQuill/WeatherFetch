@@ -26,30 +26,49 @@ function askForLocation() {
 }
 
 async function fetchWeather(lat, lon) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m&timezone=auto`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code&timezone=auto`;
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error('Failed to fetch weather data')}
     return await response.json();
 } 
 
+const weatherConditions = {
+    0: "Sunny",
+    1: "Clear Sky", 
+    2: "Partly Cloudy",
+    3: "Cloudy",
+    45: "foggy",
+    51: "light drizzle",
+    61: "Slight Rain",
+    63: "Moderate Rain",
+    65: "Heavy Rain",
+    71: "Slight Snowfall",
+    73: "Moderate Snowfall",
+    75: "Heavy Snowfall",
+    95: "ThunderStorm",
+    99: "Hailstorm"
+}; 
+
 function displayWeather(data, locationName) {
     document.getElementById('status').style.display = 'none';
     document.getElementById('content').style.display = 'block'; 
     
     document.getElementById('locationName').innerText = locationName;
+    const code = data.current.weather_code;
+    document.getElementById('condition').innerText = weatherConditions[code];
     document.getElementById('temp').innerText= data.current.temperature_2m;
     document.getElementById('humidity').innerText = data.current.relative_humidity_2m;
     document.getElementById('windspeed').innerText = data.current.wind_speed_10m;
     document.getElementById('feeltemp').innerText = data.current.apparent_temperature;
     document.getElementById('precip').innerText = data.current.precipitation;
-}
+} 
 
 async function fetchLocationName(lat, lon) {
     const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
     const response = await fetch(url);    
         if (!response.ok) { 
-            return "Unkown Location";
+            return "Unkown Location"; 
         } 
 
     const data = await response.json();
@@ -59,4 +78,3 @@ async function fetchLocationName(lat, lon) {
 
     return country ? `${city}, ${country}` : city;
     }
-    

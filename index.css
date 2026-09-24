@@ -1,11 +1,11 @@
 html {
-    background-color: rgb(196, 216, 243);
+    background-color: rgb(105, 161, 238);
     border-style: solid;
     border-width: 0.2vw;
     border-color: rgb(0, 0, 0);
     padding-bottom: 100vw;
 }
-h1{
+h1{ 
     font-family: Helvetica;
     box-shadow: 0.5vw 0.5vw rgba(0, 0, 0, 0.5);
     background-color: rgb(156, 189, 232);
@@ -37,8 +37,39 @@ p{
     border-color: rgb(0, 0, 0);
     box-shadow: 0.5vw 0.5vw rgba(0, 0, 0, 0.5);
 }
-.weather {
+.weather { 
  
+}
+.sticker1{
+    position: absolute;
+    height: clamp(13vw, 17vw, 22vw);
+    width: clamp(13vw, 17vw, 22vw);
+    transform: rotate(3deg);
+    top: 10vw;
+    left: 4vw;
+}
+.sticker2{
+    position: absolute;
+    height: clamp(13vw, 18vw, 22vw);
+    width: clamp(13vw, 18vw, 22vw);
+    transform: rotate(12deg);
+    top: 10vw;
+    right: 10vw
+}
+.sticker3{
+    position: absolute;
+    height: clamp(13vw, 18vw, 22vw);
+    width: clamp(13vw, 18vw,22vw);
+    top: 28vw;
+    right: 5vw;
+}
+.sticker4{
+    position: absolute;
+    height: clamp(13vw, 18vw, 22vw);
+    width: clamp(13vw, 18vw, 22vw);
+    top: 27vw;
+    left: 8vw;
+    transform: rotate(-15deg);
 }
 .item{
     display: flex;
