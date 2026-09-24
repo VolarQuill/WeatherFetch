@@ -26,7 +26,7 @@ function askForLocation() {
 }
 
 async function fetchWeather(lat, lon) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code&timezone=auto`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code&daily=uv_index_max&timezone=auto`;
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error('Failed to fetch weather data')}
@@ -62,6 +62,7 @@ function displayWeather(data, locationName) {
     document.getElementById('windspeed').innerText = data.current.wind_speed_10m;
     document.getElementById('feeltemp').innerText = data.current.apparent_temperature;
     document.getElementById('precip').innerText = data.current.precipitation;
+    document.getElementById('uv').innerText = data.daily.uv_index_max[0];
 } 
 
 async function fetchLocationName(lat, lon) {
