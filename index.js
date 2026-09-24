@@ -1,12 +1,13 @@
 window.addEventListener('DOMContentLoaded', async () => {
+    startClock();
     try {
         const coords = await askForLocation();
         document.getElementById('status').innerText = 'Fetching weather data...';
 
         const weatherData = await fetchWeather(coords.lat, coords.lon);
         const locationName = await fetchLocationName(coords.lat, coords.lon);
-
-        displayWeather(weatherData, locationName);
+        const aqiData = await fetchAirQuality(coords.lat, coords.lon);
+        displayWeather(weatherData, locationName, aqiData);
     } catch (error) {
         document.getElementById('status').innerText = error;
     }
@@ -79,3 +80,16 @@ async function fetchLocationName(lat, lon) {
 
     return country ? `${city}, ${country}` : city;
     } 
+
+function startClock() {
+    setInterval(() => {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        document.getElementById('time').innerText = timeString;
+    }, 1000);
+}
+

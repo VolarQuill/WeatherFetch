@@ -45,6 +45,20 @@ p{
     transition: all 0.1s;
     border-radius: 5px;
 }
+.time{
+    font-family: monospace;
+    font-weight: 800;
+    font-size: 3vw;
+    display: flex;
+    object-position: bottom;
+    text-align: bottom;
+    justify-content: bottom;
+    align-self: flex-end;
+    padding-bottom: 3vw;
+} 
+.time:hover{ 
+    text-decoration: underline;
+}
 .spec:hover{
     text-decoration: underline;
     text-decoration-thickness: 2px;
